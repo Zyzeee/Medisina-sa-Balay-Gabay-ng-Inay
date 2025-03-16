@@ -279,6 +279,33 @@
             font-size: 12px;
             color: gray;
         }
+        
+        .bubble-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between bubbles */
+            flex-wrap: wrap;
+            margin-top: 90px;
+        }
+        
+        .bubble {
+            background-color: gray;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            opacity: 0;
+            position: relative;
+            animation: fadeInOut 4s infinite ease-in-out;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(10px); }
+            10% { opacity: 1; transform: translateY(0px); }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
 
     </style>
 </head>
@@ -336,6 +363,8 @@
         <button class="search-button" onclick="searchHerb()">Search</button>
     </div>
 </div>
+
+<div class="bubble-container"></div>
 
 <!-- No Results Message -->
 <div id="no-results-message" style="color: red; margin-top: 10px; display: none;"></div>
@@ -491,6 +520,64 @@ document.addEventListener("click", function (event) {
         menu.classList.remove("show");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bubbleContainer = document.querySelector(".bubble-container");
+    const messages = [
+        "I'm having diarrhea right now, any remedies?",
+        "I'm having a toothache right now, any remedies?",
+        "Is there any remedy for arthritis?",
+        "Stomachache remedy",
+        "What herbal remedy is effective for treating ringworm and other fungal infections?",
+        "Which plant is known for its antifungal properties and is used to treat skin diseases?",
+        "Stomachache remedy",
+        "Which herb, also known as bitter gourd, is used to help manage diabetes and control blood sugar levels?",
+        "What is a natural antioxidant that helps regulate blood sugar in diabetic patients?",
+        "Which fruit is used as a natural antiseptic for wounds and can also help with diarrhea?",
+        "What herbal remedy is commonly used as a mouthwash to maintain oral health?",
+        "Which medicinal plant, also known as Niyug-niyogan, is effective for deworming and removing intestinal parasites?",
+        "What herb is recognized for its anti-helmintic properties and improves digestive health?",
+        "What herb is traditionally used to relieve arthritis, joint pain, and gout?",
+        "Which medicinal plant helps reduce uric acid levels and provides anti-inflammatory benefits?",
+        "Which herb, also known as garlic, is commonly used to manage hypertension and relieve toothache?",
+        "What natural remedy is beneficial for people with high blood pressure?",
+        "What herbal medicine is used as a diuretic and helps with anti-urolithiasis (kidney stones)?",
+        "Which medicinal plant is known for treating diarrhea, stomachache, and edema?",
+        "Which medicinal plant is often prepared as a tea to help with diarrhea and stomachache?",
+        "What herb, also called Tsaang Gubat, is effective in promoting digestive health?",
+        "What herbal plant is widely used for pain relief, including headache, arthritis, and menstrual pain?",
+        "Which medicinal herb is useful for treating toothache, cough, and swollen gums?",
+        "Which medicinal plant is commonly used to treat cough, asthma, and bronchitis?",
+        "What natural remedy is known for helping with fever, cold, and flu symptoms?",
+        "Which herb is effective in treating dysentery, eczema, and scabies?",
+
+    ];
+
+    function showRandomBubble() {
+        // Remove all previous bubbles before adding a new one
+        bubbleContainer.innerHTML = "";
+
+        // Select a random message
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.textContent = randomMessage;
+
+        // Randomize animation delay
+        let randomDelay = Math.random() * 3; // 0 to 3 seconds
+        bubble.style.animationDelay = `${randomDelay}s`;
+
+        bubbleContainer.appendChild(bubble);
+
+        // Remove bubble after animation ends
+        setTimeout(() => {
+            bubble.remove();
+        }, 4000); // Matches animation duration
+    }
+
+    // Show a new bubble every 4-6 seconds at random intervals
+    setInterval(showRandomBubble, Math.floor(Math.random() * 2000) + 4000);
 
 
 </script>
