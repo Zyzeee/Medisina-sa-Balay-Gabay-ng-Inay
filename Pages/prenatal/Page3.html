@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mga Buwanang Yugto ng Paglaki ni Baby</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            margin: 0;
+            padding: 80px 20px 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .home-icon {
+            font-size: 28px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin-right: 60px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.1);
+            color: #388e3c;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .alert {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .symptom-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .symptom-box {
+            width: 320px;
+            background: linear-gradient(to bottom, #b3e5fc, #81d4fa);
+            color: #004d40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .symptom-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom, #a5d6a7, #66bb6a);
+            color: white;
+        }
+
+        .next-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .nav-btn {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            color: white;
+            padding: 14px 28px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+                /* Custom Scrollbar */
+                ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../SearchTab.html" class="home-icon">🏠</a>
+    </div>
+
+    <div class="main-container">
+        <div class="content-box">
+            <h2 class="alert">Ang Paglaki ni Baby sa Sinapupunan ni Nanay</h2>
+            <p>Nanay, ito ang iyong buwanang patnubay sa paglaki ni baby sa loob ng iyong sinapupunan. Anuman ang iyong kainin at gawin ay maaaring makaapekto sa tamang paglaki at paghubog ni baby.</p>
+            
+            <div class="symptom-container">
+                <div class="symptom-box">0-4 na Linggo: Ang sukat ni baby ay 2 milimetro ang haba. Nagsisimula nang mahubog ang kanyang utak, gulugod, at mukha. Iwasan ang mga gamot na makakaapekto sa kanya. Tumingin sa magagandang larawan at tanawin.</div>
+                <div class="symptom-box">4-8 na Linggo: Ang puso ay nagsisimula nang tumibok at ang iba’t iba pang bahagi ng katawan ay nabubuo. Nagsisimula nang magkaroon ng hubog ang kanyang mukha, mata, at ang mga daliri sa kamay at paa. Makinig ng kaaya-ayang musika. Kumain ng iba’t ibang uri ng pagkain tulad ng karne, isda, dilaw at luntiang gulay, at prutas.</div>
+                <div class="symptom-box">8-12 na Linggo: Ang mga pangunahing bahagi ng katawan ay nahubog na. Ang ulo ay malaki kung ikukumpara sa katawan upang mabigyang puwang ang paglaki ng utak. Mayroon nang baba, ilong, at talukap ng mata. Nakalutang si baby sa tubig ng bahay bata. Huwag kalimutang uminom ng iron, Folic Acid, at Calcium Carbonate supplements.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="next-container">
+        <a href="Page2.html" class="nav-btn">← Return Page</a>
+        <a href="Page4.html" class="nav-btn">Next Page →</a>
+    </div>
+</body>
+</html>

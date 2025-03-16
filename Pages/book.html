@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Book</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #8bc34a, #f5f5dc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #333;
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .home-icon {
+            font-size: 26px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin-right: 40px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.1);
+            color: #388e3c;
+        }
+
+        .container {
+            width: 260px; /* Small and compact */
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #d4e157;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Perfect centering */
+        }
+
+        .book-cover {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            border: 2px solid #d4e157;
+        }
+
+        h1 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            color: #D68B00;
+        }
+
+        p {
+            font-size: 0.9em;
+        }
+
+        .publisher {
+            font-weight: bold;
+            color: #388e3c;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="SearchTab.html" class="home-icon">🏠</a>
+    </div>
+    
+    <div class="container">
+        <img src="../Assets/Logo/book.jpg" alt="Nanay & Baby Book Cover" class="book-cover">
+        <h1>📖 Nanay & Baby Book</h1>
+        <p class="publisher">Published by DOH and USAID</p>
+    </div>
+
+</body>
+</html>

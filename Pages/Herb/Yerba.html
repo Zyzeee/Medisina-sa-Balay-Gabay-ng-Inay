@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerba Buena (Mentha cordifolia)</title>
+    <style>
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../Assets/Herbal/yerbaBG.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .container {
+            width: 60%;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #333;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 30px;
+            text-align: center;
+            border-radius: 20px;
+            top: -20px;
+        }
+
+        /* Plant Name */
+        .plant-name {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: 'Dancing Script', cursive; /* Cursive font applied here */
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Content Wrapper */
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            margin-top: 80px; /* Moved everything down */
+        }
+
+        /* Image Box */
+        .small-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 25px;
+        }
+
+        .small-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Vertical Line */
+        .line {
+            width: 1px;
+            height: 190px;
+            background-color: #333;
+            margin: 0 25px;
+        }
+
+        /* Description Box */
+        .description-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .description {
+            width: 340px;
+            font-size: 16px;
+            font-family: 'Dancing Script', cursive; /* Cursive font applied here */
+            color: #333;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Read More Button */
+        .read-more-btn {
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .read-more-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Return Button */
+        .return-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .return-btn:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Section (Name + Button) -->
+        <div class="top-section">
+            <div class="plant-name">Yerba Buena (Mentha cordifolia)</div>
+            <button class="return-btn" onclick="location.href='../SearchTab.html'">Return to Search</button>
+        </div>
+
+        <!-- Main Content (Image + Line + Description) -->
+        <div class="content">
+            <!-- Image (Left Side) -->
+            <div class="small-box">
+                <img src="../../Assets/Herbal/yerba buena.jpg" alt="Yerba Buena Image">
+            </div>
+            
+            <!-- Vertical Line (Middle) -->
+            <div class="line"></div>
+
+            <!-- Description (Right Side) -->
+            <div class="description-box">
+                <div class="description" id="description">
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Head pain, stomachache:</b> Pound a small piece and apply to the affected area. <br>
+                    • <b>Rheumatism, arthritis, and headache:</b> Crush fresh leaves and squeeze sap. Massage with eucalyptus. <br>
+                    • <b>Cough and cold:</b> Soak 10 fresh leaves in hot water, drink as tea. <br>
+                    • <b>Swollen gums & toothache:</b> Squeeze sap and soak cotton, insert into cavity. <br>
+                </div>
+                <!-- Read More Button Inside Content -->
+                <button class="read-more-btn" onclick="toggleDescription()">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let expanded = false;
+        function toggleDescription() {
+            const desc = document.getElementById("description");
+            const btn = document.querySelector(".read-more-btn");
+
+            if (!expanded) {
+                desc.innerHTML = `
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Menstrual and gas pain:</b> Soak leaves in boiling water, drink infusion. <br>
+                    • <b>Nausea & fainting:</b> Crush leaves and apply at nostrils. <br>
+                    • <b>Insect bites:</b> Crush leaves, apply juice on affected area. <br>
+                    • <b>Pruritus:</b> Boil plant alone or with eucalyptus, use decoction as a wash. <br>
+                `;
+                btn.innerText = "Read Less";
+            } else {
+                desc.innerHTML = `
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Head pain, stomachache:</b> Pound a small piece and apply to the affected area. <br>
+                    • <b>Rheumatism, arthritis, and headache:</b> Crush fresh leaves and squeeze sap. Massage with eucalyptus. <br>
+                    • <b>Cough and cold:</b> Soak 10 fresh leaves in hot water, drink as tea. <br>
+                    • <b>Swollen gums & toothache:</b> Squeeze sap and soak cotton, insert into cavity. <br>
+                `;
+                btn.innerText = "Read More";
+            }
+            expanded = !expanded;
+        }
+    </script>
+
+</body>
+</html>

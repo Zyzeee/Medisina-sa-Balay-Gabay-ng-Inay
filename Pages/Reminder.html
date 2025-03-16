@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders on Herbal Medicine</title>
+
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .home-icon {
+            font-size: 24px;
+            color: #2e7d32;
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.1);
+            color: #388e3c;
+        }
+
+        /* Glassmorphic Card */
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            margin-top: 80px; /* Lowered Position */
+        }
+
+        /* Hide scrollbar when not in use */
+        .container::-webkit-scrollbar {
+            width: 0px; /* Fully hidden */
+        }
+
+        /* Title */
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #9ccc65;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* List */
+        ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 15px 0;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 12px;
+            border-radius: 10px;
+            transition: transform 0.2s ease, background 0.3s;
+        }
+
+        ul li:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        ul li::before {
+            content: "✅";
+            font-size: 20px;
+            margin-right: 12px;
+            color: #388e3c;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #607d8b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="SearchTab.html" class="home-icon">🏠</a>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <h1>Reminders on the Use of Herbal Medicine</h1>
+        <ul>
+            <li>Avoid the use of insecticide as these may leave poison on plants.</li>
+            <li>In the preparation of herbal medicine, use a clay pot and remove cover while boiling at low heat.</li>
+            <li>Use only the part of the plant being advocated.</li>
+            <li>Follow the accurate dose of the suggested preparation.</li>
+            <li>Use only one kind of herbal plant for each type of symptom or sickness.</li>
+            <li>Stop giving the herbal medication in case an untoward reaction such as allergy occurs.</li>
+            <li>If signs and symptoms are not relieved after 2 to 3 doses of herbal medication, consult a doctor.</li>
+        </ul>
+        
+        <div class="footer">
+            <p>🌿 Stay safe & consult a healthcare professional when needed.</p>
+        </div>
+    </div>
+
+</body>
+</html>

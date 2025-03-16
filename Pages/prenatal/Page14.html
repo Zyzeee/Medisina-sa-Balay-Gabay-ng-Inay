@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagubilin sa Pagpapakain</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #D68B00;
+        }
+        .info-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .info-section p {
+            font-size: 1em;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .food-list {
+            background: #FFF3E0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+        .food-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .food-list li {
+            padding: 10px;
+            font-size: 1em;
+            text-align: left;
+        }
+        .food-list li::before {
+            content: "🍽️ ";
+            font-size: 1.2em;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            color: white;
+            padding: 14px 28px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .nav-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .home-icon {
+            font-size: 30px;
+            color: #D68B00;
+            text-decoration: none;
+            margin-right: 60px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+        .home-icon:hover {
+            transform: scale(1.2);
+            color: #FF9800;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="../SearchTab.html" class="home-icon">🏠</a>
+    </div>
+
+    <div class="container">
+        <h1>🍼 Tagubilin sa Pagpapakain</h1>
+
+        <div class="info-section">
+            <p>Pagkapanganak hanggang 6 na buwan, ang tanging kailangan ni baby ay ang <strong>gatas ng ina</strong>. Hindi kailangang bigyan ng anumang pagkain kahit na tubig.</p>
+            <p>Pagkapanganak ni baby, kailangang pasusuhin nang madalas, humigit-kumulang 15 minuto sa bawat suso.</p>
+            <p>Mula 6 hanggang 12 buwan, patuloy na pasusuhin si baby at bigyan siya ng masustansyang pagkain.</p>
+        </div>
+
+        <div class="food-list">
+            <h2>🥣 Mga Rekomendadong Pagkain</h2>
+            <ul>
+                <li>Dinurog na gulay, monggo, patatas, at kamote</li>
+                <li>Pinulbos na ibinusang dilis o hinimay na isda</li>
+                <li>Tinadtad na karne o manok</li>
+                <li>Pula ng itlog</li>
+                <li>Pinasingawang tokwa</li>
+                <li>Prutas gaya ng saging, mangga, at abokado</li>
+                <li>Meryenda tulad ng taho</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <p>Bigyan si baby ng pagkain <strong>1-2 beses bawat araw</strong> matapos siyang pasusuhin, at unti-unti hanggang maging <strong>3 beses bawat araw</strong>.</p>
+        </div>
+
+        <div class="button-container">
+            <a href="Page13.html" class="nav-btn">← Return Page</a>
+            <a href="Page15.html" class="nav-btn">Next Page →</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

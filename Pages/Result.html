@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 5px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        h2 {
+            color: #2E8B57;
+            margin-bottom: 15px;
+        }
+        .user-query {
+            font-size: 18px;
+            color: #555;
+            background: #f1f1f1;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .result-item {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            text-align: left;
+        }
+        .result-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .result-item a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .no-results {
+            font-size: 18px;
+            color: #888;
+            margin-top: 15px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🔍 Search Results</h2>
+        <p class="user-query">You searched for: <strong id="query-text"></strong></p>
+        <div id="results"></div>
+        <a href="SearchTab.html" class="back-button">🔄 New Search</a>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        function highlightMatch(text, keyword) {
+            let regex = new RegExp(`(${keyword})`, "gi");
+            return text.replace(regex, `<span class="highlight">$1</span>`);
+        }
+
+        function extractMatchingSentence(text, keyword) {
+            let regex = new RegExp(`([^.!?]*\\b${keyword}\\b[^.!?]*[.!?])`, "gi");
+            let match = regex.exec(text);
+            return match ? match[0] : text.substring(0, 100) + "..."; // Default: first 100 chars
+        }
+
+        function displayResults() {
+            let query = getQueryParam('query');
+            let results = JSON.parse(decodeURIComponent(getQueryParam('results')));
+            let resultsContainer = document.getElementById('results');
+            let queryText = document.getElementById('query-text');
+
+            queryText.innerText = query || "No query provided";
+
+            if (!results || results.length === 0) {
+                resultsContainer.innerHTML = `<p class="no-results">❌ No results found for "<strong>${query}</strong>".</p>`;
+                return;
+            }
+
+            results.forEach(result => {
+                let snippet = extractMatchingSentence(result.description, query);
+                let highlightedTitle = highlightMatch(result.title, query);
+                let highlightedSnippet = highlightMatch(snippet, query);
+                
+                resultsContainer.innerHTML += `
+                    <div class="result-item">
+                        <a href="${result.url}">${highlightedTitle}</a>
+                        <p>${highlightedSnippet}</p>
+                    </div>
+                `;
+            });
+        }
+
+        displayResults();
+    </script>
+
+</body>
+</html>
