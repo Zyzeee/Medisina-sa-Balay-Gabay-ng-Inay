@@ -279,33 +279,56 @@
             font-size: 12px;
             color: gray;
         }
-        
+
         .bubble-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Space between bubbles */
-            flex-wrap: wrap;
-            margin-top: 90px;
-        }
-        
-        .bubble {
-            background-color: gray;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            opacity: 0;
-            position: relative;
-            animation: fadeInOut 4s infinite ease-in-out;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(10px); }
-            10% { opacity: 1; transform: translateY(0px); }
-            90% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-10px); }
-        }
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between bubbles */
+    flex-wrap: wrap;
+    margin-top: 90px;
+}   
+
+.bubble {
+    background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+    color: black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    opacity: 0;
+    position: relative;
+    animation: fadeInOut 4s infinite ease-in-out;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0px); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.no-results-message {
+    position: absolute;
+    top: 390px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+    opacity: 1; 
+    animation: fadeOut 3s ease-in-out forwards;
+}
+
+
 
     </style>
 </head>
@@ -361,13 +384,15 @@
         <i class="search-icon">🔍</i>
         <input type="text" id="searchBar" class="search-box" placeholder="Ask a question or search for herbs...">
         <button class="search-button" onclick="searchHerb()">Search</button>
-    </div>
-</div>
+        <!-- Suggestion Bubbles -->
 
+    </div>
+
+</div>
 <div class="bubble-container"></div>
 
 <!-- No Results Message -->
-<div id="no-results-message" style="color: red; margin-top: 10px; display: none;"></div>
+<div id="no-results-message" class="no-results-message"></div>
 
 <script>
 function searchHerb() {
@@ -379,15 +404,6 @@ function searchHerb() {
     searchButton.innerHTML = '<div class="button-spinner"></div>'; // Show loading indicator
     searchButton.disabled = true; 
     noResultsMessage.style.display = 'none'; // Hide previous error messages
-
-    // Prevent empty search input
-    if (!query) {
-        noResultsMessage.textContent = "Please enter a search term.";
-        noResultsMessage.style.display = "block";
-        searchButton.innerHTML = originalText;
-        searchButton.disabled = false;
-        return;
-    }
 
     setTimeout(() => {
         let herbs = [
@@ -417,7 +433,7 @@ function searchHerb() {
             },
             { 
                 title: "Ulasimang Bato (Peperomia pellucida)", 
-                url: "../Pages/Herb/Ulasimangbato.html", 
+                url: "../Pages/Herb/UlasimangBato.html", 
                 keywords: ["ulasimang", "ulasimang bato", "peperomia pellucida", "arthritis", "joint pain", "gout", "anti-inflammatory", "uric", "uric acid", "rheumatism"],
                 description: "Ulasimang Bato (Peperomia pellucida) is commonly used to relieve arthritis, joint pain, and gout due to its anti-inflammatory properties."
             },
@@ -531,25 +547,25 @@ document.addEventListener("DOMContentLoaded", function () {
         "What herbal remedy is effective for treating ringworm and other fungal infections?",
         "Which plant is known for its antifungal properties and is used to treat skin diseases?",
         "Stomachache remedy",
-        "Any herb, that is used to help manage diabetes and control blood sugar levels?",
+        "Which herb, also known as bitter gourd, is used to help manage diabetes and control blood sugar levels?",
         "What is a natural antioxidant that helps regulate blood sugar in diabetic patients?",
         "Which fruit is used as a natural antiseptic for wounds and can also help with diarrhea?",
         "What herbal remedy is commonly used as a mouthwash to maintain oral health?",
-        "What medicinal plant is effective for deworming and removing intestinal parasites?",
-        "Herb that's recognized for its anti-helmintic properties and improves digestive health?",
-        "Any herb  that's traditionally used to relieve arthritis, joint pain, and gout?",
+        "Which medicinal plant, also known as Niyug-niyogan, is effective for deworming and removing intestinal parasites?",
+        "What herb is recognized for its anti-helmintic properties and improves digestive health?",
+        "What herb is traditionally used to relieve arthritis, joint pain, and gout?",
         "Which medicinal plant helps reduce uric acid levels and provides anti-inflammatory benefits?",
-        "Which herb, is commonly used to manage hypertension and relieve toothache?",
+        "Which herb, also known as garlic, is commonly used to manage hypertension and relieve toothache?",
         "What natural remedy is beneficial for people with high blood pressure?",
-        "Any herbal medicine that is used as a diuretic and helps with anti-urolithiasis (kidney stones)?",
-        "Any medicinal plant for treating diarrhea, stomachache, and edema?",
-        "What medicinal plant is often prepared as a tea to help with diarrhea and stomachache?",
-        "What hern  is effective in promoting digestive health?",
+        "What herbal medicine is used as a diuretic and helps with anti-urolithiasis (kidney stones)?",
+        "Which medicinal plant is known for treating diarrhea, stomachache, and edema?",
+        "Which medicinal plant is often prepared as a tea to help with diarrhea and stomachache?",
+        "What herb, also called Tsaang Gubat, is effective in promoting digestive health?",
         "What herbal plant is widely used for pain relief, including headache, arthritis, and menstrual pain?",
-        "What medicinal herb is useful for treating toothache, cough, and swollen gums?",
-        "What medicinal plant is commonly used to treat cough, asthma, and bronchitis?",
+        "Which medicinal herb is useful for treating toothache, cough, and swollen gums?",
+        "Which medicinal plant is commonly used to treat cough, asthma, and bronchitis?",
         "What natural remedy is known for helping with fever, cold, and flu symptoms?",
-        "What herb is effective in treating dysentery, eczema, and scabies?",
+        "Which herb is effective in treating dysentery, eczema, and scabies?",
 
     ];
 
@@ -579,6 +595,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show a new bubble every 4-6 seconds at random intervals
     setInterval(showRandomBubble, Math.floor(Math.random() * 3000) + 7000);
 });
+
+
 
 </script>
 
