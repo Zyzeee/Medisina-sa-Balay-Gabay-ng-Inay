@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tamang Pagpapasuso</title>
     <style>
-        body {
+       body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -16,7 +16,16 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+            overflow-x: hidden
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .container {
             width: 90%;
             max-width: 800px;
@@ -26,17 +35,22 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             margin-top: 90px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.3s forwards;
         }
+
         h1 {
             font-size: 1.8em;
             margin-bottom: 15px;
             color: #D68B00;
         }
+
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
+
         .info-box {
             display: flex;
             align-items: center;
@@ -45,22 +59,28 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-in-out forwards;
         }
-        .full-width {
-            grid-column: span 2;
-            justify-content: center;
-        }
-        .info-box p {
-            margin: 0;
-            font-size: 1em;
-            text-align: left;
-        }
-        
+
+        .info-box:nth-child(1) { animation-delay: 0.3s; }
+        .info-box:nth-child(2) { animation-delay: 0.5s; }
+        .info-box:nth-child(3) { animation-delay: 0.7s; }
+        .info-box:nth-child(4) { animation-delay: 0.9s; }
+        .info-box:nth-child(5) { animation-delay: 1.1s; }
+        .info-box:nth-child(6) { animation-delay: 1.3s; }
+        .info-box:nth-child(7) { animation-delay: 1.5s; }
+        .info-box:nth-child(8) { animation-delay: 1.7s; }
+        .info-box:nth-child(9) { animation-delay: 1.9s; }
+
         .button-container {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 2.1s forwards;
         }
 
         .nav-btn {
@@ -83,9 +103,6 @@
         @media (max-width: 768px) {
             .grid-container {
                 grid-template-columns: 1fr;
-            }
-            .full-width {
-                grid-column: span 1;
             }
             .button-container {
                 flex-direction: column;
