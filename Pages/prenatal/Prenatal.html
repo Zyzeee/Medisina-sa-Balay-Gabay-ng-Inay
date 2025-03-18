@@ -13,8 +13,34 @@
             padding: 80px 20px 20px;
             text-align: center;
             background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            animation: fadeIn 1.2s ease-in-out;
         }
 
+        /* Animation */
+        @keyframes fadeInPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar */
         .navbar {
             width: 100%;
             position: fixed;
@@ -28,6 +54,7 @@
             align-items: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            animation: fadeInPop 1s ease-in-out;
         }
 
         .home-icon {
@@ -52,6 +79,7 @@
             border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInPop 1.2s ease-in-out;
         }
         th, td {
             border: 1px solid #ddd;
@@ -79,6 +107,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             text-align: left;
             transition: transform 0.3s ease-in-out;
+            animation: fadeInPop 1.5s ease-in-out;
         }
         .checkup-box:hover {
             transform: scale(1.02);
@@ -97,6 +126,7 @@
             padding-left: 40px;
             position: relative;
             font-size: 1.1em;
+            animation: fadeInPop 1.8s ease-in-out;
         }
 
         .checkup-box li::before {
@@ -145,6 +175,7 @@
             border-radius: 25px;
             transition: transform 0.3s ease, background 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInPop 2s ease-in-out;
         }
         .next-btn:hover {
             transform: scale(1.1);
