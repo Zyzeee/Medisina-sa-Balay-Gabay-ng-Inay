@@ -6,34 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paghahanda sa Eksklusibong Pagpapasuso</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        /* 🔥 Fix for the Green Line Issue */
+        html, body {
+            overflow-x: hidden; /* Prevent unwanted scrolling */
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #d4e157 40%, #f5f5dc 60%);
             color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
-        
+
+        /* 🔥 Fade-in Animation for Container */
         .container {
             width: 90%;
             max-width: 800px;
             background: #fff;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             margin-top: 90px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-in-out 0.5s forwards;
         }
 
-        h1 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #D68B00;
+        /* 🔥 Smooth Entrance Animation for Navbar */
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideDown 0.8s ease-out 0.2s forwards;
         }
+
+        .home-icon {
+            font-size: 30px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin-right: 60px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.2);
+            color: #388e3c;
+        }
+
+        /* 🔥 Slide-in Effect for Paragraphs */
+        p {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.8s ease-in-out forwards;
+        }
+
+        p:nth-child(1) { animation-delay: 0.3s; }
+        p:nth-child(2) { animation-delay: 0.5s; }
+        p:nth-child(3) { animation-delay: 0.7s; }
+        p:nth-child(4) { animation-delay: 0.9s; }
 
         .section-title {
             font-size: 1.3em;
@@ -59,59 +108,35 @@
             color: #BF360C;
         }
 
-        .navbar {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(212, 225, 87, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .home-icon {
-            font-size: 30px;
-            color: #2e7d32;
-            text-decoration: none;
-            margin-right: 60px;
-            transition: transform 0.2s ease, color 0.3s;
-        }
-
-        .home-icon:hover {
-            transform: scale(1.2);
-            color: #388e3c;
-        }
-
+        /* 🔥 Scale Effect on Hover for Buttons */
         .button-container {
             display: flex;
-            justify-content: center; /* Center the buttons */
-            gap: 15px; /* Adds space between buttons */
-            margin-top: 20px; /* Space from the container */
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .nav-btn {
             background: linear-gradient(to bottom, #8bc34a, #558b2f);
             color: white;
-            padding: 14px 28px; /* Match size */
-            font-size: 1.2em; /* Match size */
+            padding: 14px 28px;
+            font-size: 1.2em;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 30px; /* Match size */
+            border-radius: 30px;
             transition: transform 0.3s ease, background 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Match effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .nav-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #7cb342, #33691e);
         }
 
+        /* 🔥 Scrollbar Customization */
         ::-webkit-scrollbar {
             width: 10px;
+            background: transparent;
         }
 
         ::-webkit-scrollbar-track {
@@ -128,12 +153,28 @@
             background: linear-gradient(to bottom, #7cb342, #33691e);
         }
 
+        /* 🔥 Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* 🔥 Responsive Design */
         @media (max-width: 768px) {
             .button-container {
                 flex-direction: column;
                 gap: 10px;
             }
-
             .nav-btn {
                 width: 100%;
                 text-align: center;
@@ -149,12 +190,12 @@
 
     <div class="container">
         <h1>🍼 Mahalagang Paalala para sa Eksklusibong Pagpapasuso</h1>
-
+    
         <div class="content-box">
             <p><strong>Nanay, alam mo ba?</strong> Ang pagpapasuso ng anak ay nakabubuti hindi lang kay baby, kundi pati rin sa iyo! Kaya mahalagang paghandaan ito.</p>
             <p>💡 Ang 6 na buwang eksklusibong pagpapasuso ng <strong>gatas ng ina lamang</strong>—walang milk formula, juice, tubig, o bitamina na hindi inireseta ng doktor—ay mahalaga sa kalusugan ni baby.</p>
         </div>
-
+    
         <div class="section-title">👶 Mga Benepisyo para kay Baby</div>
         <div class="content-box">
             <p>✔️ Ang gatas ng ina ay ligtas, malinis, at madaling tunawin.</p>
@@ -162,7 +203,7 @@
             <p>✔️ Ito ang proteksyon laban sa sakit tulad ng pagtatae at impeksyon sa respiratory system gaya ng ubo, sipon, o pulmonya.</p>
             <p>✔️ Mas malusog at matibay ang katawan ni baby.</p>
         </div>
-
+    
         <div class="section-title">🤱 Mga Benepisyo para kay Nanay</div>
         <div class="content-box">
             <p>✔️ Ang gatas ng ina ay <strong>libre</strong></p>
@@ -172,7 +213,6 @@
         </div>
     </div>
 
-    <!-- Buttons placed directly below the container -->
     <div class="button-container">
         <a href="Page11.html" class="nav-btn">← Return Page</a>
         <a href="Page13.html" class="nav-btn">Next Page →</a>
