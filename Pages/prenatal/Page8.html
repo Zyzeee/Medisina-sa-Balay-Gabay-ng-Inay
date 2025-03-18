@@ -6,12 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhilHealth Package</title>
     <style>
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
             text-align: center;
             padding: 20px;
             margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideDown 0.7s ease-out;
+        }
+
+        .home-icon {
+            font-size: 30px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin-right: 60px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.2);
+            color: #388e3c;
         }
 
         .container {
@@ -23,6 +74,7 @@
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             text-align: left;
+            animation: popIn 0.8s ease-in-out;
         }
 
         .section {
@@ -31,6 +83,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             background: #fafafa;
+            animation: popIn 0.9s ease-in-out;
         }
 
         h2 {
@@ -81,37 +134,9 @@
         }
 
         .nav-btn:hover {
-            transform: scale(1.05);
-            background: linear-gradient(to bottom, #7cb342, #33691e);
+            animation: scaleUp 0.3s forwards;
         }
 
-        .navbar {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(212, 225, 87, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .home-icon {
-            font-size: 30px;
-            color: #2e7d32;
-            text-decoration: none;
-            margin-right: 60px;
-            transition: transform 0.2s ease, color 0.3s;
-        }
-
-        .home-icon:hover {
-            transform: scale(1.2);
-            color: #388e3c;
-        }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
