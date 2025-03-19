@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; URL='Pages/SearchTab.html'" />
+    <meta http-equiv="refresh" content="5; URL='Pages/SearchTab.html'" />
     <title>Redirecting...</title>
     <style>
         body {
@@ -11,10 +11,13 @@
             height: 100vh;
             background-color: #f9f9f9;
             margin: 0;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
         }
         .loader {
             display: flex;
             gap: 5px;
+            margin-bottom: 10px;
         }
         .dot {
             width: 10px;
@@ -37,6 +40,10 @@
                 opacity: 1;
             }
         }
+        .message {
+            font-size: 14px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -45,5 +52,6 @@
         <div class="dot"></div>
         <div class="dot"></div>
     </div>
+    <p class="message">Redirecting in 5 seconds...</p>
 </body>
 </html>
