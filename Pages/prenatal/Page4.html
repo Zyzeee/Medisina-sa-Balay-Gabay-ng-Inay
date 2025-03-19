@@ -10,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -167,6 +167,24 @@
             margin: 40px 0;
         }
 
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
     </style>
 </head>
 <body>
@@ -179,32 +197,32 @@
         <h2>Mga Sabi-sabi at Katotohanan Tungkol sa Pagbubuntis</h2>
         <p><strong>TANDAAN!</strong> Huwag basta maniwala sa mga sabi-sabi. Kumonsulta sa mga health service providers.</p>
     
-        <button class="accordion">📌 Kapag maitim ang leeg at singit, lalaki ang anak?</button>
+        <button class="accordion"> Kapag maitim ang leeg at singit, lalaki ang anak?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Ang pangingitim ng ilang bahagi ng katawan ay dulot ng pagbabago ng hormones, hindi ng kasarian ng anak.</p>
         </div>
     
-        <button class="accordion">🍌 Kapag kumain ng kambal na saging, kambal din ang anak?</button>
+        <button class="accordion"> Kapag kumain ng kambal na saging, kambal din ang anak?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Ang pagkakaroon ng kambal ay natutukoy sa fertilization, hindi sa pagkain ng saging.</p>
         </div>
     
-        <button class="accordion">🦷 Naglalagas ang ngipin sa bawat pagbubuntis?</button>
+        <button class="accordion"> Naglalagas ang ngipin sa bawat pagbubuntis?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Hindi ito totoo. Ang sapat na Calcium intake ay nagpapanatili ng malakas na buto at ngipin ng buntis.</p>
         </div>
     
-        <button class="accordion">⚰️ Bawal dumalaw sa may sakit o burol?</button>
+        <button class="accordion"> Bawal dumalaw sa may sakit o burol?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Hindi dahil sa pamahiin kundi para sa kaligtasan ng buntis mula sa sakit.</p>
         </div>
     
-        <button class="accordion">❤️ Bawal makipagtalik habang buntis?</button>
+        <button class="accordion"> Bawal makipagtalik habang buntis?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Walang katotohanan ito. Hindi aabot ang ari sa inunan, kaya't ligtas ito basta walang komplikasyon.</p>
         </div>
     
-        <button class="accordion">🍽️ Huwag kumain ng marami para hindi mahirapan manganak?</button>
+        <button class="accordion"> Huwag kumain ng marami para hindi mahirapan manganak?</button>
         <div class="panel">
             <p><strong>Ang totoo:</strong> Ang sapat na nutrisyon ay mahalaga para sa ina at sanggol. Ang hindi pagkain ng sapat ay maaaring magdulot ng mababang timbang sa sanggol.</p>
         </div>
