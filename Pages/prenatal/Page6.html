@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
             text-align: center;
             padding: 20px;
             margin: 0;
@@ -67,7 +67,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
             background: white;
             padding: 25px;
@@ -87,12 +87,31 @@
             margin-top: 20px;
         }
 
+        /* Two-column checklist layout */
+        .checklist-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .checklist-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            background: #f9fbe7;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .checklist {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 15px;
-            margin-top: 20px;
             justify-content: center;
+            margin-top: 10px;
         }
 
         .item-box {
@@ -168,33 +187,41 @@
     </div>
 
     <div class="container">
-        <h2>📌 Paghahanda sa Panganganak</h2>
+        <h2> Paghahanda sa Panganganak</h2>
         <p>Nanay, gamitin ang checklist na ito para siguradong dala ang mga kailangan sa oras ng panganganak.</p>
 
-        <h3>📝 Para kay Nanay</h3>
-        <div class="checklist">
-            <div class="item-box">Damit</div>
-            <div class="item-box">Panty & Bra</div>
-            <div class="item-box">Bathrobe</div>
-            <div class="item-box">Tuwalya</div>
-            <div class="item-box">Suklay</div>
-            <div class="item-box">Pasador</div>
-            <div class="item-box">Shampoo/Sabon</div>
-            <div class="item-box">Toilet Paper</div>
-            <div class="item-box">Sipilyo/Toothpaste</div>
-            <div class="item-box">Tsinelas</div>
-        </div>
+        <div class="checklist-container">
+            <!-- Para kay Nanay -->
+            <div class="checklist-box">
+                <h3> Para kay Nanay</h3>
+                <div class="checklist">
+                    <div class="item-box">Damit</div>
+                    <div class="item-box">Panty & Bra</div>
+                    <div class="item-box">Bathrobe</div>
+                    <div class="item-box">Tuwalya</div>
+                    <div class="item-box">Suklay</div>
+                    <div class="item-box">Pasador</div>
+                    <div class="item-box">Shampoo/Sabon</div>
+                    <div class="item-box">Toilet Paper</div>
+                    <div class="item-box">Sipilyo/Toothpaste</div>
+                    <div class="item-box">Tsinelas</div>
+                </div>
+            </div>
 
-        <h3>👶 Para kay Baby</h3>
-        <div class="checklist">
-            <div class="item-box">Kumot</div>
-            <div class="item-box">Damit</div>
-            <div class="item-box">Lampin/Diaper</div>
-            <div class="item-box">Bonnet</div>
-            <div class="item-box">Mittens</div>
-            <div class="item-box">Medyas</div>
-            <div class="item-box">Perdible/Clip</div>
-            <div class="item-box">Baby Sabon</div>
+            <!-- Para kay Baby -->
+            <div class="checklist-box">
+                <h3> Para kay Baby</h3>
+                <div class="checklist">
+                    <div class="item-box">Kumot</div>
+                    <div class="item-box">Damit</div>
+                    <div class="item-box">Lampin/Diaper</div>
+                    <div class="item-box">Bonnet</div>
+                    <div class="item-box">Mittens</div>
+                    <div class="item-box">Medyas</div>
+                    <div class="item-box">Perdible/Clip</div>
+                    <div class="item-box">Baby Sabon</div>
+                </div>
+            </div>
         </div>
     </div>
 
