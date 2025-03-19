@@ -12,7 +12,7 @@
             margin: 0;
             padding: 80px 20px 20px;
             text-align: center;
-            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
             animation: fadeIn 1.2s ease-in-out;
         }
 
@@ -72,17 +72,19 @@
 
         /* Table Styling */
         table {
-            width: 80%;
+            border: 2px solid #ccc; /* Adjust thickness and color */
+            width: 50%;
             margin: 20px auto;
             border-collapse: collapse;
-            background: white;
+            background-color: rgba(248, 249, 250, 0.85);
             border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: fadeInPop 1.2s ease-in-out;
         }
         th, td {
-            border: 1px solid #ddd;
+            
+            background-color: rgba(248, 249, 250, 0.85);
             padding: 12px;
             text-align: left;
         }
@@ -93,13 +95,16 @@
 
         /* Check-up Details */
         .checkup-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+            
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adds space between the boxes */
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
         .checkup-box {
-            width: 80%;
+            border: 2px solid #ccc; /* Adjust thickness and color */
+            width: 45%;
             background: white;
             padding: 20px;
             margin: 10px 0;
@@ -181,6 +186,8 @@
             transform: scale(1.1);
             background: linear-gradient(to bottom, #7cb342, #33691e);
         }
+
+        
     </style>
 </head>
 <body>
