@@ -7,57 +7,49 @@
     <title>Paghahanda sa Panganganak</title>
 
     <style>
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes scaleUp {
-            from { transform: scale(1); }
-            to { transform: scale(1.05); }
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
-            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
             padding: 20px;
-            margin: 0;
-            animation: fadeIn 1s ease-in-out;
+            overflow: auto;
         }
 
+        /* Navigation Bar */
         .navbar {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
-            backdrop-filter: blur(5px);
-            padding: 15px 20px;
+            padding: 15px 30px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            animation: slideDown 0.7s ease-out;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 9999;
         }
 
         .home-icon {
-            font-size: 28px;
+            font-size: 24px;
             color: #2e7d32;
             text-decoration: none;
-            margin-right: 60px;
             transition: transform 0.2s ease, color 0.3s;
         }
 
@@ -66,165 +58,167 @@
             color: #388e3c;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            margin-top: 80px;
-            border-radius: 20px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            animation: popIn 0.8s ease-in-out;
+        /* Title & Description */
+        .header-text {
+            text-align: center;
+            margin-top: 100px;
+            max-width: 700px;
         }
 
-        h2 {
-            color: #d35400;
+        .header-text h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2e7d32;
             margin-bottom: 10px;
+            border-bottom: 3px solid #9ccc65;
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
-        h3 {
-            color: #6d4c41;
-            margin-top: 20px;
+        .header-text p {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
 
-        /* Two-column checklist layout */
+        /* Two-column container */
         .checklist-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
             flex-wrap: wrap;
-            gap: 20px;
+            max-width: 900px;
+            width: 100%;
             margin-top: 20px;
         }
 
         .checklist-box {
             flex: 1;
             min-width: 300px;
-            text-align: center;
-            background: #f9fbe7;
-            padding: 20px;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .checklist-box h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
         }
 
         .checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-            justify-content: center;
-            margin-top: 10px;
+            list-style: none;
+            text-align: left;
+            padding: 0;
         }
 
-        .item-box {
-            width: 120px;
-            height: 120px;
-            background: #81c784;
-            color: white;
+        .checklist li {
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 12px 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-            font-size: 14px;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.4);
             padding: 10px;
-            font-weight: bold;
-            transition: transform 0.2s ease-in-out;
+            border-radius: 10px;
+            transition: transform 0.2s ease, background 0.3s;
         }
 
-        .item-box:hover {
-            transform: scale(1.05);
-            background: linear-gradient(to bottom, #fb8c00, #e65100);
+        .checklist li:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.6);
         }
 
+        .checklist li::before {
+            content: "✅";
+            font-size: 20px;
+            margin-right: 12px;
+            color: #388e3c;
+        }
+
+        /* Navigation Buttons */
         .next-container {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .nav-btn {
             background: linear-gradient(to bottom, #8bc34a, #558b2f);
             color: white;
-            padding: 14px 28px;
+            padding: 12px 24px;
             font-size: 1.2em;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             transition: transform 0.3s ease, background 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
         .nav-btn:hover {
-            animation: scaleUp 0.3s forwards;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f5f5dc;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #8bc34a, #558b2f);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
+            transform: scale(1.1);
             background: linear-gradient(to bottom, #7cb342, #33691e);
         }
-
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="../SearchTab.html" class="home-icon">🏠</a>
     </div>
 
-    <div class="container">
-        <h2> Paghahanda sa Panganganak</h2>
+    <!-- Title & Description -->
+    <div class="header-text">
+        <h1>Paghahanda sa Panganganak</h1>
         <p>Nanay, gamitin ang checklist na ito para siguradong dala ang mga kailangan sa oras ng panganganak.</p>
+    </div>
 
-        <div class="checklist-container">
-            <!-- Para kay Nanay -->
-            <div class="checklist-box">
-                <h3> Para kay Nanay</h3>
-                <div class="checklist">
-                    <div class="item-box">Damit</div>
-                    <div class="item-box">Panty & Bra</div>
-                    <div class="item-box">Bathrobe</div>
-                    <div class="item-box">Tuwalya</div>
-                    <div class="item-box">Suklay</div>
-                    <div class="item-box">Pasador</div>
-                    <div class="item-box">Shampoo/Sabon</div>
-                    <div class="item-box">Toilet Paper</div>
-                    <div class="item-box">Sipilyo/Toothpaste</div>
-                    <div class="item-box">Tsinelas</div>
-                </div>
-            </div>
+    <!-- Checklist Container (Two Columns) -->
+    <div class="checklist-container">
+        <!-- Para kay Nanay -->
+        <div class="checklist-box">
+            <h3>Para kay Nanay</h3>
+            <ul class="checklist">
+                <li>Damit</li>
+                <li>Panty & Bra</li>
+                <li>Bathrobe</li>
+                <li>Tuwalya</li>
+                <li>Suklay</li>
+                <li>Pasador</li>
+                <li>Shampoo/Sabon</li>
+                <li>Toilet Paper</li>
+                <li>Sipilyo/Toothpaste</li>
+                <li>Tsinelas</li>
+            </ul>
+        </div>
 
-            <!-- Para kay Baby -->
-            <div class="checklist-box">
-                <h3> Para kay Baby</h3>
-                <div class="checklist">
-                    <div class="item-box">Kumot</div>
-                    <div class="item-box">Damit</div>
-                    <div class="item-box">Lampin/Diaper</div>
-                    <div class="item-box">Bonnet</div>
-                    <div class="item-box">Mittens</div>
-                    <div class="item-box">Medyas</div>
-                    <div class="item-box">Perdible/Clip</div>
-                    <div class="item-box">Baby Sabon</div>
-                </div>
-            </div>
+        <!-- Para kay Baby -->
+        <div class="checklist-box">
+            <h3>Para kay Baby</h3>
+            <ul class="checklist">
+                <li>Kumot</li>
+                <li>Damit</li>
+                <li>Lampin/Diaper</li>
+                <li>Bonnet</li>
+                <li>Mittens</li>
+                <li>Medyas</li>
+                <li>Perdible/Clip</li>
+                <li>Baby Sabon</li>
+            </ul>
         </div>
     </div>
 
+    <!-- Navigation Buttons -->
     <div class="next-container">
         <a href="Page5.html" class="nav-btn">← Return Page</a>
         <a href="Page7.html" class="nav-btn">Next Page →</a>
