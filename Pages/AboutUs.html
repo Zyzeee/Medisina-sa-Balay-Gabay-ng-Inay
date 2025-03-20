@@ -6,6 +6,8 @@
     <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
     <title>About Us</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -13,33 +15,16 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             text-align: center;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 800px;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: #fdd835;
-        }
-
-        p {
-            font-size: 1.3em;
-            line-height: 1.6;
+            color: #f1f1f1;
+            overflow: hidden;
         }
 
         .navbar {
@@ -70,6 +55,88 @@
             color: #388e3c;
         }
 
+        .logo-container {
+            width: 150px; /* Increased width */
+            height: 150px; /* Increased height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 137px;
+            left: 450px; /* Center it properly */
+            transform: translateX(-50%);
+        }
+
+        .logo-container img {
+            max-width: 250px; /* Adjusted logo size */
+            height: auto;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+        }
+
+        .logo-container img.active {
+            opacity: 1;
+        }
+
+
+        .content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin-top: 180px; /* Increased to move text below logo */
+        }
+
+        .container-text {
+            width: 450px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 300px;
+            margin-top: 245px;
+        }
+        .container {
+            width: 450px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 110px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #fdd835;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .names {
+            margin-top: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            font-weight: 600;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -78,10 +145,51 @@
         <a href="SearchTab.html" class="home-icon">🏠</a>
     </div>
 
-    <div class="container">
-        <h1>About Us!</h1>
-        <p>We are second-year nursing students from Mabini Colleges Inc. - BSN 2H, Clinical Group 2 S.Y. 2024-2025.</p>
+    <!-- Logo placed at the top -->
+    <div class="logo-container">
+        <img src="../Assets/Logo/logo1.png" class="active" id="logo1">
+        <img src="../Assets/Logo/Logo3.png" id="logo2">
+        <img src="../Assets/Logo/Logo4.png" id="logo3">
+        <img src="../Assets/Logo/MC_MIDNURSING_Logo.gif" id="logo4">
     </div>
+
+    <div class="content">
+        <!-- About Us Container -->
+        <div class="container-text">
+            <h1>About Us!</h1>
+            <p>We are second-year nursing students from Mabini Colleges Inc. - BSN 2H, Clinical Group 2 S.Y. 2024-2025.</p>
+        </div>
+
+        <!-- Team Members Container -->
+        <div class="container">
+            <h1>Our Team</h1>
+            <div class="names">
+                <p>Anzano, Myca A.</p>
+                <p>Calayo, Angela L.</p>
+                <p>Carillo, Jeillo Anne T.</p>
+                <p>Legaspi, Nowie Liza H.</p>
+                <p>Paming, Erica Joy</p>
+                <p>Pardinez, Christine May A.</p>
+                <p>Rosales, Ariane B.</p>
+                <p>Segundo, Francesca Elaine O.</p>
+                <p>Tamondong, Lailanie Kate V.</p>
+                <p>Vasquez, Marken S.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logos = document.querySelectorAll('.logo-container img');
+        let index = 0;
+
+        function changeLogo() {
+            logos.forEach(logo => logo.classList.remove('active')); 
+            logos[index].classList.add('active'); 
+            index = (index + 1) % logos.length;
+        }
+
+        setInterval(changeLogo, 3000); // Change logo every 3 seconds
+    </script>
 
 </body>
 </html>
