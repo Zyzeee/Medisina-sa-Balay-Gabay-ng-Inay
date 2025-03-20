@@ -7,7 +7,7 @@
     <title>Mga Buwanang Yugto ng Paglaki ni Baby</title>
     <style>
         body {
-            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc); /* Greenish-yellow gradient */
             margin: 0;
             padding: 80px 20px 20px;
             font-family: 'Arial', sans-serif;
@@ -25,7 +25,7 @@
             position: fixed;
             top: -100px;
             left: 0;
-            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc); /* Greenish-yellow gradient */
             backdrop-filter: blur(5px);
             padding: 15px 20px;
             display: flex;
@@ -36,49 +36,9 @@
             animation: slideDown 0.8s ease-out forwards;
         }
 
-        .nav-btn {
-            background: linear-gradient(to bottom, #8bc34a, #558b2f);
-            color: white;
-            padding: 12px 24px;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.3s ease, background 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: popIn 1s ease-out forwards;
-        }
-
-        .nav-btn:hover {
-            transform: scale(1.1);
-            background: linear-gradient(to bottom, #7cb342, #33691e);
-        }
-
-        /* 🌀 ANIMATIONS */
-        @keyframes popIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes pageBounce {
-            0% { transform: translateY(-10px); }
-            50% { transform: translateY(5px); }
-            100% { transform: translateY(0); }
-        }
-
         @keyframes slideDown {
-            from {
-                top: -100px;
-            }
-            to {
-                top: 0;
-            }
+            from { top: -100px; }
+            to { top: 0; }
         }
 
         .home-icon {
@@ -130,11 +90,11 @@
 
         .symptom-box {
             width: 320px;
-            background: linear-gradient(to bottom, #b3e5fc, #81d4fa);
+            background: #f3B82D;
             color: #004d40;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
             font-size: 16px;
             font-weight: bold;
@@ -143,24 +103,23 @@
             padding: 20px;
             transition: all 0.3s ease-in-out;
             opacity: 0;
+            animation: popIn 1s ease-out forwards;
         }
 
-        .symptom-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to bottom, #a5d6a7, #66bb6a);
-            color: white;
+        .symptom-box p {
+            color: #f5e6c5; /* Soft warm white */
         }
 
-        @keyframes popIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .week-range {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #004d40;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
 
         .next-container {
@@ -172,9 +131,28 @@
             animation: popIn 1s ease-out forwards 1.5s;
         }
 
-        
+        .nav-btn {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-        /* Custom Scrollbar */
+        .nav-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -192,6 +170,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(to bottom, #7cb342, #33691e);
         }
+
     </style>
 </head>
 <body>
@@ -205,15 +184,17 @@
             <p>Nanay, ito ang iyong buwanang patnubay sa paglaki ni baby sa loob ng iyong sinapupunan. Anuman ang iyong kainin at gawin ay maaaring makaapekto sa tamang paglaki at paghubog ni baby.</p>
             
             <div class="symptom-container">
-                <div class="symptom-box" style="animation: popIn 1s ease-out forwards 0.7s;">
-                    0-4 na Linggo: Ang sukat ni baby ay 2 milimetro ang haba. Nagsisimula nang mahubog ang kanyang utak, gulugod, at mukha. Iwasan ang mga gamot na makakaapekto sa kanya. Tumingin sa magagandang larawan at tanawin.
+                <div class="symptom-box" style="animation-delay: 0.7s;">
+                    <h3 class="week-range">0-4 na Linggo</h3>
+                    <p>Ang sukat ni baby ay 2 milimetro ang haba. Nagsisimula nang mahubog ang kanyang utak, gulugod, at mukha. Iwasan ang mga gamot na makakaapekto sa kanya. Tumingin sa magagandang larawan at tanawin.</p>
                 </div>
-                <div class="symptom-box" style="animation: popIn 1s ease-out forwards 1s;">
-                    4-8 na Linggo: Ang puso ay nagsisimula nang tumibok at ang iba’t iba pang bahagi ng katawan ay nabubuo. Nagsisimula nang magkaroon ng hubog ang kanyang mukha, mata, at ang mga daliri sa kamay at paa. Makinig ng kaaya-ayang musika. Kumain ng iba’t ibang uri ng pagkain tulad ng karne, isda, dilaw at luntiang gulay, at prutas.
+                <div class="symptom-box" style="animation-delay: 1s;">
+                    <h3 class="week-range">4-8 na Linggo</h3>
+                    <p>Ang puso ay nagsisimula nang tumibok at ang iba’t iba pang bahagi ng katawan ay nabubuo. Nagsisimula nang magkaroon ng hubog ang kanyang mukha, mata, at ang mga daliri sa kamay at paa. Makinig ng kaaya-ayang musika. Kumain ng iba’t ibang uri ng pagkain tulad ng karne, isda, dilaw at luntiang gulay, at prutas.</p>
                 </div>
-                <div class="symptom-box" style="animation: popIn 1s ease-out forwards 1.3s;">
-                    8-12 na Linggo: Ang mga pangunahing bahagi ng katawan ay nahubog na. Ang ulo ay malaki kung ikukumpara sa katawan upang mabigyang puwang ang paglaki ng utak. Mayroon nang baba, ilong, at talukap ng mata. Nakalutang si baby sa tubig ng bahay bata. Huwag kalimutang uminom ng iron, Folic Acid, at Calcium Carbonate supplements.
-                </div>
+                <div class="symptom-box" style="animation-delay: 1.3s;">
+                    <h3 class="week-range">8-12 na Linggo</h3>
+                    <p>Ang mga pangunahing bahagi ng katawan ay nahubog na. Ang ulo ay malaki kung ikukumpara sa katawan upang mabigyang puwang ang paglaki ng utak. Mayroon nang baba, ilong, at talukap ng mata. Nakalutang si baby sa tubig ng bahay bata. Huwag kalimutang uminom ng iron, Folic Acid, at Calcium Carbonate supplements.</p>
             </div>
         </div>
     </div>
