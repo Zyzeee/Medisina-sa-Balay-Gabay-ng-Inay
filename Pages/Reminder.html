@@ -7,10 +7,8 @@
     <title>Reminders on Herbal Medicine</title>
 
     <style>
-        /* Import Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
-        /* General Styling */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +28,6 @@
             overflow: hidden;
         }
 
-        /* Navigation Bar */
         .navbar {
             width: 100%;
             position: fixed;
@@ -58,7 +55,6 @@
             color: #388e3c;
         }
 
-        /* Glassmorphic Card */
         .container {
             width: 90%;
             max-width: 700px;
@@ -71,16 +67,15 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             max-height: 80vh;
             overflow-y: auto;
-            scrollbar-width: none; /* Hide scrollbar for Firefox */
-            margin-top: 80px; /* Lowered Position */
+            scrollbar-width: none;
+            margin-top: 80px;
+            position: relative;
         }
 
-        /* Hide scrollbar when not in use */
         .container::-webkit-scrollbar {
-            width: 0px; /* Fully hidden */
+            width: 0px;
         }
 
-        /* Title */
         h1 {
             font-size: 28px;
             font-weight: 600;
@@ -91,7 +86,6 @@
             padding-bottom: 5px;
         }
 
-        /* List */
         ul {
             list-style: none;
             text-align: left;
@@ -124,11 +118,31 @@
             color: #388e3c;
         }
 
-        /* Footer */
         .footer {
             margin-top: 20px;
             font-size: 14px;
             color: #607d8b;
+        }
+
+        .translate-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .translate-btn img {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .translate-btn img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -141,21 +155,40 @@
 
     <!-- Content Container -->
     <div class="container">
+        <!-- Translate Image Button -->
+        <button class="translate-btn" id="translateBtn">
+            <img src="../Assets/Logo/translate.png" alt="Translate">
+        </button>
+
         <h1>Reminders on the Use of Herbal Medicine</h1>
-        <ul>
-            <li>Avoid the use of insecticide as these may leave poison on plants.</li>
-            <li>In the preparation of herbal medicine, use a clay pot and remove cover while boiling at low heat.</li>
-            <li>Use only the part of the plant being advocated.</li>
-            <li>Follow the accurate dose of the suggested preparation.</li>
-            <li>Use only one kind of herbal plant for each type of symptom or sickness.</li>
-            <li>Stop giving the herbal medication in case an untoward reaction such as allergy occurs.</li>
-            <li>If signs and symptoms are not relieved after 2 to 3 doses of herbal medication, consult a doctor.</li>
+        <ul id="reminderList">
+            <li data-en="Avoid the use of insecticide as these may leave poison on plants." data-tl="Iwasan ang paggamit ng insecticide dahil maaaring magdulot ito ng lason sa mga halaman.">Avoid the use of insecticide as these may leave poison on plants.</li>
+            <li data-en="In the preparation of herbal medicine, use a clay pot and remove cover while boiling at low heat." data-tl="Sa paghahanda ng halamang gamot, gumamit ng palayok at alisin ang takip habang pinakukuluan sa mahinang apoy.">In the preparation of herbal medicine, use a clay pot and remove cover while boiling at low heat.</li>
+            <li data-en="Use only the part of the plant being advocated." data-tl="Gamitin lamang ang bahagi ng halaman na inirerekomenda.">Use only the part of the plant being advocated.</li>
+            <li data-en="Follow the accurate dose of the suggested preparation." data-tl="Sundin ang tamang dosis ng inirerekomendang paghahanda.">Follow the accurate dose of the suggested preparation.</li>
+            <li data-en="Use only one kind of herbal plant for each type of symptom or sickness." data-tl="Gumamit lamang ng isang uri ng halamang gamot sa bawat uri ng sintomas o sakit.">Use only one kind of herbal plant for each type of symptom or sickness.</li>
+            <li data-en="Stop giving the herbal medication in case an untoward reaction such as allergy occurs." data-tl="Itigil ang pagbibigay ng halamang gamot kung may hindi kanais-nais na reaksyon tulad ng allergy.">Stop giving the herbal medication in case an untoward reaction such as allergy occurs.</li>
+            <li data-en="If signs and symptoms are not relieved after 2 to 3 doses of herbal medication, consult a doctor." data-tl="Kung hindi bumuti ang sintomas matapos ang 2 hanggang 3 dosis ng halamang gamot, kumonsulta sa doktor.">If signs and symptoms are not relieved after 2 to 3 doses of herbal medication, consult a doctor.</li>
         </ul>
-        
+
         <div class="footer">
             <p>🌿 Stay safe & consult a healthcare professional when needed.</p>
         </div>
     </div>
+
+    <!-- Script for Translation Toggle -->
+    <script>
+        const translateBtn = document.getElementById("translateBtn");
+        const items = document.querySelectorAll("#reminderList li");
+        let isTranslated = false;
+
+        translateBtn.addEventListener("click", () => {
+            items.forEach(item => {
+                item.textContent = isTranslated ? item.dataset.en : item.dataset.tl;
+            });
+            isTranslated = !isTranslated;
+        });
+    </script>
 
 </body>
 </html>
