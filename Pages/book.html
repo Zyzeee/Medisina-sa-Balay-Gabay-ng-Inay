@@ -51,6 +51,20 @@
             color: #388e3c;
         }
 
+        .main-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Container for dropdown and description */
+        .left-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 20px; /* Space between left container and the book */
+        }
+
         .container {
             width: 260px; /* Small and compact */
             background: #fff;
@@ -58,10 +72,10 @@
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             border: 3px solid #d4e157;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Perfect centering */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .book-cover {
@@ -86,7 +100,63 @@
             font-weight: bold;
             color: #388e3c;
         }
-        
+
+        /* Dropdown styles */
+        .dropdown-container {
+            margin-bottom: 10px; /* Space between dropdown and description */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the dropdown and label */
+            width: 100%;
+        }
+
+        .dropdown-container label {
+            font-weight: bold;
+            color: #388e3c;
+            margin-bottom: 5px;
+            display: block;
+            text-align: center; /* Center the label */
+        }
+
+        .dropdown-container select {
+            padding: 5px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #d4e157;
+            width: 100%; /* Make dropdown fill the width */
+            max-width: 250px; /* Optional: limit max width */
+            margin: 0 auto;
+        }
+
+        /* Description container styles */
+        .description-container {
+            display: none;
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #d4e157;
+            width: 100%; /* Ensure description container takes full width */
+            max-width: 300px; /* Optional: limit max width */
+            text-align: center; /* Center the text inside the description */
+            color: #333;
+            margin-top: 10px; /* Add space between dropdown and description */
+        }
+
+        /* New Container to hold Dropdown and Description */
+        .info-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #d4e157;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center contents horizontally */
+            justify-content: center; /* Center contents vertically */
+            margin-right: 100px;
+        }
     </style>
 </head>
 <body>
@@ -94,11 +164,53 @@
         <a href="SearchTab.html" class="home-icon">🏠</a>
     </div>
     
-    <div class="container">
-        <img src="../Assets/Logo/book.jpg" alt="Nanay & Baby Book Cover" class="book-cover">
-        <h1>📖 Nanay & Baby Book</h1>
-        <p class="publisher">Published by DOH and USAID</p>
+    <!-- Main Container with Book and Left Section -->
+    <div class="main-container">
+        <!-- Left Container with Dropdown and Description -->
+        <div class="left-container">
+            <!-- New Container to hold Dropdown and Description -->
+            <div class="info-container">
+                <!-- Dropdown Section -->
+                <div class="dropdown-container">
+                    <label for="republic-act">Republic Act</label>
+                    <select id="republic-act">
+                        <option value="">Select Republic Act</option>
+                        <option value="ra1">Republic Act 8423</option>
+                    </select>
+                </div>
+
+                <!-- Description Container -->
+                <div id="description-container" class="description-container">
+                    <p>Otherwise known as TAMA - TRADITIONAL AND ALTERNATIVE MEDICINE ACT OF 1997.<br>
+                    An act creating the Philippine Institute of Traditional and Alternative Health Care (PITAHC) to accelerate the development of traditional and alternative health care in the Philippines, providing for a traditional and alternative health care development fund and for other purposes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Container -->
+        <div class="container">
+            <img src="../Assets/Logo/book.jpg" alt="Nanay & Baby Book Cover" class="book-cover">
+            <h1>📖 Nanay & Baby Book</h1>
+            <p class="publisher">Published by DOH and USAID</p>
+        </div>
     </div>
+
+    <script>
+        // Get the dropdown and description container elements
+        const dropdown = document.getElementById('republic-act');
+        const descriptionContainer = document.getElementById('description-container');
+
+        // Event listener for dropdown change
+        dropdown.addEventListener('change', function() {
+            if (this.value === 'ra1') {
+                // Show the description when Republic Act 8423 is selected
+                descriptionContainer.style.display = 'block';
+            } else {
+                // Hide the description if another option is selected or no option
+                descriptionContainer.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 </html>
