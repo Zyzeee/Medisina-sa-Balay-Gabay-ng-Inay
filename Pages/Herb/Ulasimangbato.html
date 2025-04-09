@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulasimang Bato (Peperomia pellucida)</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../Assets/Herbal/tsaanggubatBG.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .container {
+            width: 60%;
+            height: auto;
+            margin: 50px auto;
+            border: 1px solid #333;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 20px;
+            top: -20px;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .plant-name {
+            position: absolute;
+            top: 23px;
+            left: 30px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Arial', sans-serif; /* Cursive font applied here */
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .small-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            margin-top: 60px;
+            margin-left: 120px;
+
+            /* Animation */
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .small-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .small-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .line {
+            width: 500px;
+            height: 1px;
+            background-color: #333;
+            margin: 20px 0;
+        }
+
+        .description {
+            width: 320px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            text-align: center;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            position: relative;
+            margin-left: 50px;
+        }
+
+        /* Translate Button */
+        .translate-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .translate-btn:hover {
+            transform: scale(1.2);
+        }
+
+
+        .return-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .return-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .info-btn {
+            position: absolute;
+            top: 235px;
+            left:  500px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5%;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 10;
+            opacity: 0; /* Initially hidden */
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 1s; /* Add delay to make it appear later */
+        }
+
+        .info-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .info-container {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            right: 250px;
+            margin: 20px auto;
+            position: relative;
+            top: 150px;
+        }
+
+        .small-box, #plant-image {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .info-container {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .info-container {
+            animation: slideUp 0.5s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="return-btn" onclick="location.href='../SearchTab.html'">Return to Search</button>
+
+        <button class="info-btn" onclick="showInfo()">Description</button>
+
+        <div class="plant-name">Ulasimang Bato (Peperomia pellucida)</div>
+
+        <div class="content" id="content">
+            <div class="small-box">
+                <img src="../../Assets/Herbal/Ulasimang Bato.jpg" alt="Ulasimang Image" id="plant-image">
+            </div>
+            <div class="line"></div>
+            <div class="description" id="description-text">
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Uses & Preparation:</strong><br>
+                • <b>Lowers uric acid (rheumatism and gout)</b> – One and a half cups of leaves are boiled in two glasses of water over low fire. Do not cover the pot. Divide into 3 parts and drink one part 3 times a day.
+            </div>
+        </div>
+
+    <script>
+        let isInfoVisible = false;
+        let isTranslated = false; // Initialize the translation state
+
+        function showInfo() {
+        const descriptionText = document.getElementById('description-text');
+
+        // If info is not visible, update description with the "info" content
+        if (!isInfoVisible) {
+            descriptionText.innerHTML = `
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Description:</strong><br>
+                • Silver bush or Shiny Bbush<br>
+                • Pansit-pansitan<br>
+                • A weed with heart-shaped leaves that grow in shady parts of the garden and yard.
+            `;
+            isInfoVisible = true;
+        } else {
+            // Restore the original "Uses & Preparation" content
+            descriptionText.innerHTML = `
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Uses & Preparation:</strong><br>
+                • <b>Lowers uric acid (rheumatism and gout)</b>  One and a half cups of leaves are boiled in two glasses of water over low fire. Do not cover the pot. Divide into 3 parts and drink one part 3 times a day.
+                `;
+            isInfoVisible = false;
+        }
+    }
+
+        function toggleTranslation() {
+            const descriptionText = document.getElementById('description-text');
+
+            if (isTranslated) {
+                descriptionText.innerHTML = `
+                    <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                    <strong>Gamit at Paghahanda:</strong><br>
+                    • <b>Pinapababa ang uric acid (rayuma at gout)</b>  Pakuluan ang isa't kalahating tasa ng dahon sa dalawang baso ng tubig sa mahinang apoy. Huwag takpan ang kaldero. Hatiin sa tatlong bahagi at inumin ang isang bahagi tatlong beses sa isang araw.
+                `;
+            } else {
+                descriptionText.innerHTML = `
+                    <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Lowers uric acid (rheumatism and gout)</b>  One and a half cups of leaves are boiled in two glasses of water over low fire. Do not cover the pot. Divide into 3 parts and drink one part 3 times a day.
+                `;
+            }
+
+            isTranslated = !isTranslated;
+        }
+    </script>
+
+</body>
+</html>

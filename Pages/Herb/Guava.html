@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayabas/Guava (Psidium guajava L.)</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../Assets/Herbal/guavaBG.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .container {
+            width: 60%;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #333;
+            background-color: rgba(248, 249, 250, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 30px;
+            text-align: center;
+            border-radius: 20px;
+            top: -20px;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .plant-header {
+            position: absolute;
+            top: 19px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .plant-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+            margin-left: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 130px;
+            width: 90%;
+        }
+
+        .small-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            margin-right: 25px;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .small-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .small-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .line {
+            width: 1px;
+            height: 180px;
+            background-color: #333;
+            margin: 0 25px;
+        }
+
+        .description {
+            width: 320px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            text-align: center;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            position: relative;
+        }
+
+        /* Translation Button Inside Description */
+        .translate-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .translate-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .return-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .return-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .info-btn {
+            position: absolute;
+            top: 80px;
+            left: 140px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5%;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 10;
+            opacity: 0; /* Initially hidden */
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 1s; /* Add delay to make it appear later */
+        }
+
+        .info-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .info-container {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            right: 250px;
+            margin: 20px auto;
+            position: relative;
+            top: 150px;
+        }
+
+        .small-box, #plant-image {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .info-container {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .info-container {
+            animation: slideUp 0.5s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Return Button -->
+        <button class="return-btn" onclick="location.href='../SearchTab.html'">Return to Search</button>
+
+        <button class="info-btn" onclick="showInfo()">Description</button>
+        
+        <!-- Plant Name -->
+        <div class="plant-header">
+            <div class="plant-name">Bayabas/Guava (Psidium guajava L.)</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content" id="content">
+            <div class="small-box">
+                <img src="../../Assets/Herbal/Guava.jpg" alt="Guava Image" id="plant-image">
+            </div>
+            <div class="line"></div>
+            <div class="description" id="description-text">
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Uses & Preparation:</strong><br>
+                • <b>For washing wounds</b> – May be used twice a day.<br>
+                • <b>Diarrhea</b> – May be taken 3-4 times a day.<br>
+                • <b>For gargling and toothache</b> – Warm decoction is used for gargling. Freshly pounded leaves are used for toothache. Boil chopped leaves for 15 minutes at low fire. Do not cover, then let it cool and strain.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isInfoVisible = false;
+        let isEnglish = false; // Initialize the translation state
+
+        function showInfo() {
+        const descriptionText = document.getElementById('description-text');
+
+        // If info is not visible, update description with the "info" content
+        if (!isInfoVisible) {
+            descriptionText.innerHTML = `
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Description:</strong><br>
+                • Guava <br>
+                • A tree 4 to 5 meters high with tiny white flowers with round or oval fruits that are eaten raw.
+            `;
+            isInfoVisible = true;
+        } else {
+            // Restore the original "Uses & Preparation" content
+            descriptionText.innerHTML = `
+                <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                <strong>Uses & Preparation:</strong><br>
+                • <b>For washing wounds</b> – May be used twice a day.<br>
+                • <b>Diarrhea</b> – May be taken 3-4 times a day.<br>
+                    • <b>For gargling and toothache</b> – Warm decoction is used for gargling. Freshly pounded leaves are used for toothache. Boil chopped leaves for 15 minutes at low fire. Do not cover, then let it cool and strain.
+                `;
+            isInfoVisible = false;
+        }
+    }
+        function toggleTranslation() {
+            const textElement = document.getElementById('description-text');
+
+            if (isEnglish) {
+                textElement.innerHTML = `
+                    <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                    <strong>Gamit at Paghahanda:</strong><br>
+                    • <b>Paghuhugas ng sugat</b> – Maaaring gamitin dalawang beses sa isang araw.<br>
+                    • <b>Pagtatae</b> – Maaaring inumin 3-4 na beses sa isang araw.<br>
+                    • <b>Pagmumog at pananakit ng ngipin</b> – Ginagamit ang mainit-init na pinaglagaan para sa pagmumumog. Ang bagong dikdik na dahon ay inilalagay sa sumasakit na ngipin. Pakuluan ang tinadtad na dahon sa mahinang apoy sa loob ng 15 minuto. Huwag takpan, palamigin, at salain bago gamitin.
+                `;
+            } else {
+                textElement.innerHTML = `
+                    <button class="translate-btn" onclick="toggleTranslation()">🔄</button>
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>For washing wounds</b> – May be used twice a day.<br>
+                    • <b>Diarrhea</b> – May be taken 3-4 times a day.<br>
+                    • <b>For gargling and toothache</b> – Warm decoction is used for gargling. Freshly pounded leaves are used for toothache. Boil chopped leaves for 15 minutes at low fire. Do not cover, then let it cool and strain.
+                `;
+            }
+            isEnglish = !isEnglish;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyug-niyogan (Quisqualis indica L.)</title>
+    <style>
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../Assets/Herbal/nigyugniyuganBG.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            width: 60%;
+            height: 500px;
+            margin: 30px auto; /* Moved up */
+            border: 1px solid #333;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 30px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .plant-name {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 22px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            animation: fadeSlideIn 1s ease-out forwards;
+        }
+
+        .small-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            margin-top: 30px; /* Moved up */
+            opacity: 0;
+            animation: fadeSlideIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .small-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .small-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .line {
+            width: 500px;
+            height: 1px;
+            background-color: #333;
+            margin-top: 20px; /* Moved up */
+        }
+
+        .description {
+            width: 80%;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 20px; /* Moved up */
+            opacity: 0;
+            animation: fadeSlideIn 1s ease-out forwards;
+            animation-delay: 1s;
+            position: relative;
+        }
+
+        .swap-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .swap-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .return-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .return-btn:hover {
+            background-color: #e64a19;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="return-btn" onclick="location.href='../SearchTab.html'">Return to Search</button>
+
+        <div class="plant-name">Niyug-niyogan (Quisqualis indica L.)</div>
+
+        <div class="small-box">
+            <img src="../../Assets/Herbal/Niyug-niyogan.jpg" alt="Niyug-niyogan Image">
+        </div>
+
+        <div class="line"></div>
+
+        <div class="description">
+            <button class="swap-btn" onclick="toggleTranslation()">🔄</button>
+            <p id="text">
+                <strong>Uses & Preparation:</strong><br>
+                • <b>Anti-helmintic</b> – The seeds are taken 2 hours after supper. If no worms are expelled, the dose may be repeated after one week. <br>
+                <b>Caution:</b> Not to be given to children below 4 years old.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let isTranslated = false;
+
+        function toggleTranslation() {
+            const textElement = document.getElementById("text");
+
+            if (isTranslated) {
+                textElement.innerHTML = `<strong>Uses & Preparation:</strong><br>
+                • <b>Anti-helmintic</b> – The seeds are taken 2 hours after supper. If no worms are expelled, the dose may be repeated after one week. <br>
+                <b>Caution:</b> Not to be given to children below 4 years old.`;
+            } else {
+                textElement.innerHTML = `<strong>Gamit at Paghahanda:</strong><br>
+                • <b>Pampurga</b> – Ang mga buto ay iniinom 2 oras pagkatapos ng hapunan. Kung walang lumabas na bulate, maaaring ulitin ang dosis makalipas ang isang linggo. <br>
+                <b>Babala:</b> Hindi dapat ibigay sa mga batang wala pang 4 na taong gulang.`;
+            }
+
+            isTranslated = !isTranslated;
+        }
+    </script>
+
+</body>
+</html>

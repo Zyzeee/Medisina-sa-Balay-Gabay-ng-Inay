@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerba Buena (Mentha cordifolia)</title>
+    <style>
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../Assets/Herbal/yerbaBG.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .container {
+            width: 60%;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #333;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 30px;
+            text-align: center;
+            border-radius: 20px;
+            top: -20px;
+        }
+
+        /* Plant Name */
+        .plant-name {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: 'Arial', sans-serif;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Content Wrapper */
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            margin-top: 80px; /* Moved everything down */
+        }
+
+        /* Image Box */
+        .small-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 25px;
+        }
+
+        .small-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Vertical Line */
+        .line {
+            width: 1px;
+            height: 190px;
+            background-color: #333;
+            margin: 0 25px;
+        }
+
+        /* Description Box */
+        .description-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .description {
+            width: 340px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif; /* Cursive font applied here */
+            color: #333;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            text-align: center;
+        }
+        .read-more-btn, .return-btn {
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .translate-btn{
+            background-color: #fff8dc;
+            color: white;
+            border: 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+            position: absolute;
+            top: 103px;
+            left: 370px;
+        }
+
+        .translate-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .read-more-btn:hover, .return-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .return-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .info-btn {
+            position: absolute;
+            top: 100px;
+            left: 140px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5%;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 10;
+            opacity: 1; /* Initially hidden */
+            animation: fadeSlideUp 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+
+        .info-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .info-container {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            right: 250px;
+            margin: 20px auto;
+            position: relative;
+            top: 150px;
+        }
+
+        .small-box, #plant-image {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .info-container {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+
+        .info-container {
+            animation: slideUp 0.5s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        
+        <!-- Top Section (Name + Buttons) -->
+        <div class="top-section">
+            
+            <div class="plant-name">Yerba Buena (Mentha cordifolia)</div>
+            <button class="return-btn" onclick="location.href='../SearchTab.html'">Return to Search</button>
+        </div>
+        
+        <button class="info-btn" onclick="showInfo()">Description</button>
+
+        <!-- Main Content (Image + Line + Description) -->
+
+        
+        <div class="content">
+
+            
+            <div class="small-box">
+                <img src="../../Assets/Herbal/yerba buena.jpg" alt="Yerba Buena Image">
+            </div>
+            <div class="line"></div>
+            <div class="description-box">
+                <button class="translate-btn" onclick="toggleLanguage()">🔄</button>
+                <div class="description" id="description">
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Head pain, stomachache:</b> Pound a small piece and apply to the affected area. <br>
+                    • <b>Rheumatism, arthritis, and headache:</b> Crush fresh leaves and squeeze sap. Massage with eucalyptus. <br>
+                    • <b>Cough and cold:</b> Soak 10 fresh leaves in hot water, drink as tea. <br>
+                    • <b>Swollen gums & toothache:</b> Squeeze sap and soak cotton, insert into cavity. <br>
+                </div>
+                <button class="read-more-btn" onclick="toggleDescription()">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isInfoVisible = false;
+        let expanded = false;
+        let inEnglish = true;
+
+        function showInfo() {
+    const descriptionEl = document.getElementById('description');
+
+    if (!isInfoVisible) {
+        descriptionEl.innerHTML = `
+            <strong>Description:</strong><br>
+            • Peppermint<br>
+            • A small multi-branching aromatic herb. The leaves are small, elliptical and with toothed margin.<br>
+            • The stem creeps to the ground and develops roots.<br>
+        `;
+        isInfoVisible = true;
+    } else {
+        descriptionEl.innerHTML = descriptions[inEnglish ? "en" : "tl"][expanded ? "long" : "short"];
+        isInfoVisible = false;
+    }
+}
+
+
+        const descriptions = {
+            en: {
+                short: `
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Head pain, stomachache:</b> Pound a small piece and apply to the affected area. <br>
+                    • <b>Rheumatism, arthritis, and headache:</b> Crush fresh leaves and squeeze sap. Massage with eucalyptus. <br>
+                    • <b>Cough and cold:</b> Soak 10 fresh leaves in hot water, drink as tea. <br>
+                    • <b>Swollen gums & toothache:</b> Squeeze sap and soak cotton, insert into cavity. <br>
+                `,
+                long: `
+                    <strong>Uses & Preparation:</strong><br>
+                    • <b>Menstrual and gas pain:</b> Soak leaves in boiling water, drink infusion. <br>
+                    • <b>Nausea & fainting:</b> Crush leaves and apply at nostrils. <br>
+                    • <b>Insect bites:</b> Crush leaves, apply juice on affected area. <br>
+                    • <b>Pruritus:</b> Boil plant alone or with eucalyptus, use decoction as a wash. <br>
+                `
+            },
+            tl: {
+                short: `
+                    <strong>Gamit at Paghahanda:</strong><br>
+                    • <b>Sakit ng ulo, pananakit ng tiyan:</b> Dikdikin ang maliit na piraso at ipahid sa apektadong bahagi. <br>
+                    • <b>Rayuma, arthritis, at sakit ng ulo:</b> Durugin ang sariwang dahon at kunin ang katas. Imasahe kasama ng eucalyptus. <br>
+                    • <b>Ubo at sipon:</b> Ibabad ang 10 sariwang dahon sa mainit na tubig at inumin bilang tsaa. <br>
+                    • <b>Pamamaga ng gilagid at sakit ng ngipin:</b> Pigain ang katas ng dahon, ibabad sa bulak, at ipasok sa sira ng ngipin. <br>
+                `,
+                long: `
+                    <strong>Gamit at Paghahanda:</strong><br>
+                    • <b>Panakit ng puson at kabag:</b> Ibabad ang dahon sa kumukulong tubig, inumin bilang tsaa. <br>
+                    • <b>Pagkahilo at hinimatay:</b> Dikdikin ang dahon at ipahid sa butas ng ilong. <br>
+                    • <b>Kagat ng insekto:</b> Dikdikin ang dahon at ipahid ang katas sa apektadong bahagi. <br>
+                    • <b>Pangangati ng balat:</b> Pakuluan ang halaman nang mag-isa o may eucalyptus, gamitin bilang panghugas. <br>
+                `
+            }
+        };
+
+        function toggleDescription() {
+            expanded = !expanded;
+            updateContent();
+        }
+
+        function toggleLanguage() {
+            inEnglish = !inEnglish;
+            updateContent();
+        }
+
+        function updateContent() {
+            document.getElementById("description").innerHTML = expanded ? descriptions[inEnglish ? "en" : "tl"].long : descriptions[inEnglish ? "en" : "tl"].short;
+        }
+
+        
+    </script>
+
+</body>
+</html>
+
+</html>
