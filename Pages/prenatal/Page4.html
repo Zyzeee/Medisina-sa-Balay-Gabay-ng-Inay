@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mga Sabi-sabi at Katotohanan Tungkol sa Pagbubuntis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc); /* Greenish-yellow gradient */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: -100px;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc); /* Greenish-yellow gradient */
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out forwards;
+        }
+
+        .nav-btn {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: popIn 1s ease-out forwards;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+        /* 🌀 ANIMATIONS */
+        @keyframes popIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pageBounce {
+            0% { transform: translateY(-10px); }
+            50% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from {
+                top: -100px;
+            }
+            to {
+                top: 0;
+            }
+        }
+
+        .home-icon {
+            font-size: 28px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin-right: 60px;
+            transition: transform 0.2s ease, color 0.3s;
+        }
+
+        .home-icon:hover {
+            transform: scale(1.1);
+            color: #388e3c;
+        }
+
+        .container {
+            max-width: 700px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 80px;
+            transform: scale(0.9);
+            animation: zoomIn 0.5s forwards;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+
+        h2 {
+            color: #388e3c;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: black;
+            font-size: 16px;
+        }
+
+        .accordion {
+            background: #81c784;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background 0.3s;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .accordion:hover {
+            background: #66bb6a;
+        }
+
+        .panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+            background: #f1f8e9;
+            padding: 0 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .active + .panel {
+            max-height: 200px;
+            padding: 15px;
+        }
+
+        .next-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="../SearchTab.html" class="home-icon">🏠</a>
+    </div>
+
+    <div class="container">
+        <h2>Mga Sabi-sabi at Katotohanan Tungkol sa Pagbubuntis</h2>
+        <p><strong>TANDAAN!</strong> Huwag basta maniwala sa mga sabi-sabi. Kumonsulta sa mga health service providers.</p>
+    
+        <button class="accordion"> Kapag maitim ang leeg at singit, lalaki ang anak?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Ang pangingitim ng ilang bahagi ng katawan ay dulot ng pagbabago ng hormones, hindi ng kasarian ng anak.</p>
+        </div>
+    
+        <button class="accordion"> Kapag kumain ng kambal na saging, kambal din ang anak?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Ang pagkakaroon ng kambal ay natutukoy sa fertilization, hindi sa pagkain ng saging.</p>
+        </div>
+    
+        <button class="accordion"> Naglalagas ang ngipin sa bawat pagbubuntis?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Hindi ito totoo. Ang sapat na Calcium intake ay nagpapanatili ng malakas na buto at ngipin ng buntis.</p>
+        </div>
+    
+        <button class="accordion"> Bawal dumalaw sa may sakit o burol?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Hindi dahil sa pamahiin kundi para sa kaligtasan ng buntis mula sa sakit.</p>
+        </div>
+    
+        <button class="accordion"> Bawal makipagtalik habang buntis?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Walang katotohanan ito. Hindi aabot ang ari sa inunan, kaya't ligtas ito basta walang komplikasyon.</p>
+        </div>
+    
+        <button class="accordion"> Huwag kumain ng marami para hindi mahirapan manganak?</button>
+        <div class="panel">
+            <p><strong>Ang totoo:</strong> Ang sapat na nutrisyon ay mahalaga para sa ina at sanggol. Ang hindi pagkain ng sapat ay maaaring magdulot ng mababang timbang sa sanggol.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".accordion").forEach(button => {
+            button.addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+
+    <div class="next-container">
+        <a href="Page3.html" class="nav-btn">← Return Page</a>
+        <a href="Page5.html" class="nav-btn">Next Page →</a>
+    </div>
+
+</body>
+</html>
