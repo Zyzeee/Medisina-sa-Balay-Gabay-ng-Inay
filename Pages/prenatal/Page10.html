@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/Assets/Logo/logo1.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pangangailangan ni Baby</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: repeating-linear-gradient(135deg, #d4e157 0%, #f5f5dc 55%);
+            color: #4f4f4f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Smooth fade-in animation */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-top: 90px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        h1 {
+            color: #D68B00;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 0.5s;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #D68B00;
+        }
+
+        .tip-box {
+            background: #FFF7D6;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 1s ease-out forwards 0.8s;
+            border: 2px solid #ccc; /* Adjust thickness and color */
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 1s ease-out forwards 1s;
+        }
+
+        .checklist li {
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .checklist li::before {
+            position: absolute;
+            left: 0;
+            color: #D68B00;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards 1.2s;
+        }
+
+        .nav-btn {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #d4e157, #f5f5dc);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: slideDown 0.8s ease-out forwards;
+        }
+
+        .home-icon, .return-icon {
+    font-size: 24px;
+    color: #2e7d32;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.3s;
+}
+
+.home-icon:hover, .return-icon:hover {
+    transform: scale(1.1);
+    color: #388e3c;
+}
+
+.return-icon {
+    font-size: 18px; /* Adjusted font size for the return button */
+    margin-right: 50px;
+}
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5dc;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8bc34a, #558b2f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #7cb342, #33691e);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="../SearchTab.html" class="home-icon">🏠</a>
+        <a href="Prenatal.html" class="return-icon">↩️ Return Page</a>
+    </div>
+
+    <div class="container">
+        <h1> Pangangailangan ni Baby sa Unang Linggo</h1>
+        
+        <p><span class="highlight">Panatilihin ang init</span> sa katawan ni baby sa pamamagitan ng skin-to-skin contact. Balutin si baby sa kumot upang maiwasan ang lamig.</p>
+        
+        <div class="tip-box">
+            <p> <strong>Tip:</strong> Upang mapanatili ang init ng katawan ni baby, siya ay punasan at balutin agad at iantala ang paliligo nang mga <strong>6 na oras </strong> matapos siyang isilang.</p>
+        </div>
+        
+        <p> <span class="highlight">Panatilihin si baby sa tabi mo.</span> Nasisiyahan ang baby kapag siya ay nasa bisig mo. Hayaan si baby na kusang sumuso sa iyo hanggang gusto niya at di dapat awatin. Ito ay makatutulong upang lalong dumami ang iyong gatas</p>
+        
+        <p> <strong>Ang gatas ng ina</strong> lamang ang pinakamainam na pagkain para sa sanggol hanggang <span class="highlight">6 na buwan</span>. Hindi pa dapat painumin ng tubig o ibang pagkain.</p>
+        
+        <div class="tip-box">
+            <p> <strong>Paunawa:</strong> Huwag bigyan si baby ng ibang uri ng gatas na nasa pakete, lata, o kahon.</p>
+        </div>
+        
+        <ul class="checklist">
+            <li>Tiyakin na napatakan si baby ng<strong> antibayotiko </strong> sa mata upang maiwasan ang impeksyon na maaaring mauwi sa pagka-bulag. Siguraduhin din na nabigyan si baby ng bakuna laban sa Hepatitis B at BCG.</li>
+        </ul>
+        
+        <p> Kung ikaw ay nahihirapang magpasuso, kumonsulta sa <strong> health worker </strong> sa pinakamalapit na health center.</p>
+        <p> Mayroon ding mga <strong> volunteer health worker </strong> o <strong> breastfeeding counselor </strong> sa inyong barangay na pwedeng makatulong sa inyo sa oras ng pangangailangan.</p>
+    </div>
+
+    <div class="button-container">
+        <a href="Page9.html" class="nav-btn">← Return Page</a>
+        <a href="Page11.html" class="nav-btn">Next Page →</a>
+    </div>
+
+</body>
+</html>
